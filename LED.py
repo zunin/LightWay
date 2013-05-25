@@ -1,38 +1,38 @@
-# import RPi.GPIO as GPIO
+import RPi.GPIO as GPIO
 from time import sleep
 
 
 class LED:
     """An LED that can light up"""
     def __init__(self, kathode, annode):
-        self.k = kathode
-        self.a = annode
+        self.kathode = kathode
+        self.annode = annode
     def light(self):
         def __init__(self, pulsetime=0.003, pausetime = 0.5):
             self.pulsetime = pulsetime
             self.pausetime = pausetime
 
-        # GPIO.setup(kathode, GPIO.OUT)
-        # GPIO.setup(annode, GPIO.OUT)
-        #
-        # led = GPIO.PWM(kathode, 100)
-        # led.start(0)
-        # GPIO.output(annode, GPIO.LOW)
-        # for i in range(0, 101):
-        #     led.ChangeDutyCycle(i)
-        #     sleep(self.pulsetime)
-        # for i in range(100, -1, -1):
-        #     led.ChangeDutyCycle(i)
-        #     sleep(self.pulsetime)
-        # led.stop()
-        #
-        # GPIO.setup(kathode, GPIO.IN)
-        # GPIO.setup(annode, GPIO.IN)
+        GPIO.setup(self.kathode, GPIO.OUT)
+        GPIO.setup(self.annode, GPIO.OUT)
 
-        # sleep(self.pausetime)
+        led = GPIO.PWM(self.kathode, 100)
+        led.start(0)
+        GPIO.output(self.annode, GPIO.LOW)
+        for i in range(0, 101):
+            led.ChangeDutyCycle(i)
+            sleep(self.pulsetime)
+        for i in range(100, -1, -1):
+            led.ChangeDutyCycle(i)
+            sleep(self.pulsetime)
+        led.stop()
+
+        GPIO.setup(self.kathode, GPIO.IN)
+        GPIO.setup(self.annode, GPIO.IN)
+
+        sleep(self.pausetime)
 
         #For debugging
-        print("I am lighting up using", self.k, "as kathode and", self.a, "as annode")
+        print("I am lighting up using", self.kathode, "as kathode and", self.annode, "as annode")
 
 
 class LEDs:
