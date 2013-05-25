@@ -1,5 +1,3 @@
-# import MySQLdb
-# import serial
 # import RPi.GPIO as GPIO
 from time import sleep
 
