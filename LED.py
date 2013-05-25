@@ -10,9 +10,10 @@ class LED:
         self.k = kathode
         self.a = annode
     def light(self):
-        # pulsetime = 0.003
-        # pausetime = 0.5
-        #
+        def __init__(self, pulsetime=0.003, pausetime = 0.5):
+            self.pulsetime = pulsetime
+            self.pausetime = pausetime
+
         # GPIO.setup(kathode, GPIO.OUT)
         # GPIO.setup(annode, GPIO.OUT)
         #
@@ -21,16 +22,16 @@ class LED:
         # GPIO.output(annode, GPIO.LOW)
         # for i in range(0, 101):
         #     led.ChangeDutyCycle(i)
-        #     sleep(pulsetime)
+        #     sleep(self.pulsetime)
         # for i in range(100, -1, -1):
         #     led.ChangeDutyCycle(i)
-        #     sleep(pulsetime)
+        #     sleep(self.pulsetime)
         # led.stop()
         #
         # GPIO.setup(kathode, GPIO.IN)
         # GPIO.setup(annode, GPIO.IN)
 
-        # sleep(pausetime)
+        # sleep(self.pausetime)
 
         #For debugging
         print("I am lighting up using", self.k, "as kathode and", self.a, "as annode")

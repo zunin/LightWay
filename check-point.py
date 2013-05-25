@@ -1,4 +1,5 @@
 import LED
+import rfid_reader
 
 # Start setup
 pin1 = 18
@@ -10,7 +11,7 @@ pin6 = 24
 pin7 = 26
 
 checkpoint = LED.LEDs(pin1, pin2, pin3, pin4, pin5, pin6, pin7)
-
+reader = rfid_reader.RFID_reader()
 # End setup
 
 #Code
@@ -19,3 +20,10 @@ for led in checkpoint.chain1:
 
 for led in reversed(checkpoint.chain1):
     led.light()
+
+if reader.hasTag():
+    if reader.hasNewMessage():
+        print ("Tag:", reader.message())
+    else:
+        print("Same tag")
+
